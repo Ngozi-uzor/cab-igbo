@@ -44,11 +44,12 @@ SELECT DISTINCT ?itemLabel WHERE {
 """
 
 # Family and Kinship — person names
-# Q5 = human, Q725389 = Igbo ethnicity
+# Q5 = human, Q27 = country of citizenship Nigeria, Q33578 = Igbo language
 NAMES_QUERY = """
 SELECT DISTINCT ?personLabel WHERE {
   ?person wdt:P31 wd:Q5 .
-  ?person wdt:P172 wd:Q725389 .
+  ?person wdt:P27 wd:Q1033 .
+  ?person wdt:P103 wd:Q33578 .
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en,ig". }
 }
 LIMIT 2000
@@ -65,11 +66,11 @@ SELECT DISTINCT ?itemLabel WHERE {
 """
 
 # Festivals and Religion — deities
-# Q178885 = deity, Q7315155 = Igbo religion
+# Q178885 = deity, Q1033 = Nigeria
 DEITIES_QUERY = """
 SELECT DISTINCT ?itemLabel WHERE {
   ?item wdt:P31/wdt:P279* wd:Q178885 .
-  ?item wdt:P361 wd:Q7315155 .
+  ?item wdt:P17 wd:Q1033 .
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en,ig". }
 }
 """
